@@ -2,19 +2,18 @@ import csv
 from functools import reduce
 
 
-with open('02_ruby_vms.csv') as f:
+with open('vms.csv') as f:
     vms_csv = list(csv.reader(f))
     #print(vms_csv)
 
-with open('02_ruby_prices.csv') as f:
+with open('prices.csv') as f:
     prices = dict(csv.reader(f))
 
 for key, value in prices.items():
     if key in ['cpu', 'ram', 'hdd_capacity', 'ssd', 'sata', 'sas']:
         prices[key] = int(value)
-print(prices)
         
-with open('02_ruby_volumes.csv') as f:
+with open('volumes.csv') as f:
     vms_volumes = list(csv.reader(f))
     #print(vms_volumes)
 
@@ -55,6 +54,8 @@ for vm in vms_csv:
 	new_vm.set (int(vm[0]), int(vm[1]), int(vm[2]), vm[3], int(vm[4]), list(filter(lambda hdd: hdd.vm_id == int(vm[0]), AddHdds)))
 	VMs.append(new_vm)
 	print(new_vm.cost)
+
+def most_expensive_vms(number):
 
 
 
