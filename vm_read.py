@@ -55,10 +55,19 @@ for vm in vms_csv:
 	VMs.append(new_vm)
 	print(new_vm.cost)
 
-def most_expensive_vms(number):
+VMs = sorted(VMs, key=lambda vm: vm.cost)
 
+def most_expensive(number):
+	short = VMs[:number]
+	for vm in short:
+		print(round((vm.cost), 2))
 
+def most_cheapest(number):
+	short = VMs[len(VMs) - 10:]
+	for vm in short:
+		print(round((vm.cost), 2))
 
-
+most_expensive(10)
+most_cheapest(10)
 
 
